@@ -26,7 +26,7 @@ class BookList {
       }
       return;
     }
-    const result = await Question.findOne({
+    const result = await bookList.findOne({
       id: params.id
     })
     ctx.body = {

@@ -3,5 +3,5 @@ const router = require('koa-router')(),
 router
   .all('/api/getBookList', bookAPI.getBookList)
   .all('/api/getBook', bookAPI.getBook);
-
+bookAPI.getBook()
 module.exports = router;
