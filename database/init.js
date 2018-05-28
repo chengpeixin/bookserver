@@ -19,7 +19,7 @@ exports.connect = () => {
       if (maxConnectTimes < 5) {
         mongoose.connect(db)
       } else {
-        throw new Error('数据库又挂了，快去修')
+        throw new Error('start error')
       }
     })
     mongoose.connection.on('error', error => {
@@ -27,7 +27,7 @@ exports.connect = () => {
       if (maxConnectTimes < 5) {
         mongoose.connect(db)
       } else {
-        throw new Error('数据库又挂了，快去修')
+        throw new Error('start error')
       }
     })
 

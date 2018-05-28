@@ -20,14 +20,14 @@ class BookList {
   }
   static async getBook(ctx) {
     const params = ctx.request.body;
-    if (!params.bookName) {
+    if (!params.id) {
       ctx.body = {
         data: ['无数据']
       }
       return;
     }
     const result = await Question.findOne({
-      bookName: params.bookName
+      id: params.id
     })
     ctx.body = {
       data: result
