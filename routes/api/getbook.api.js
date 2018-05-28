@@ -29,8 +29,21 @@ class BookList {
     const result = await bookList.findOne({
       id: params.id
     })
+    let ary = []
+    result.text.forEach((v, i) => {
+      ary.push({
+        title: v.title
+      })
+    })
+    const reqdata = {
+      img: result.imgSrc,
+      bookName: result.bookName,
+      summery: result.summery,
+      author: result.author,
+      chapter: ary
+    }
     ctx.body = {
-      data: result
+      data: reqdata
     }
   }
 }
