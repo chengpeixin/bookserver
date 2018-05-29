@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 bookList = mongoose.model('higashinokeigo'),
   URL = require('url');
 class BookList {
+  // 获取书籍列表
   static async getBookList(ctx) {
     const result = await bookList.find(),
       data = [];
@@ -18,6 +19,7 @@ class BookList {
       data
     }
   }
+  // 获取书籍基本信息
   static async getBook(ctx) {
     const params = ctx.request.body;
     if (!params.id) {
@@ -45,6 +47,10 @@ class BookList {
     ctx.body = {
       data: reqdata
     }
+  }
+  // 根据章节获取内容
+  static async getChaptertext(ctx) {
+
   }
 }
 
