@@ -34,7 +34,8 @@ class BookList {
     let ary = []
     result.text.forEach((v, i) => {
       ary.push({
-        title: v.title
+        title: v.title,
+        chapterid: v.chapterid
       })
     })
     const reqdata = {
@@ -50,7 +51,18 @@ class BookList {
   }
   // 根据章节获取内容
   static async getChaptertext(ctx) {
-
+    const params = ctx.request.body;
+    if (!params.id) {
+      ctx.body = {
+        data: ['无数据']
+      }
+      return;
+    }
+    const result = await bookList.findOne({
+      id: params.id
+    })
+    console.log(result)
+    // 每个章节为number
   }
 }
 
