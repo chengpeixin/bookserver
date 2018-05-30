@@ -61,8 +61,10 @@ class BookList {
     const result = await bookList.findOne({
       id: params.id
     })
-    console.log(result)
-    // 每个章节为number
+    const data = result.text[params.chapterid - 1] || ['无数据']
+    ctx.body = {
+      data
+    }
   }
 }
 
